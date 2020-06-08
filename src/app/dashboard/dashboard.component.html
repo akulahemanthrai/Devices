@@ -1,0 +1,51 @@
+<div>
+        <div style="padding: 1em 1em 1em 0;float: right;">
+                <mat-chip-list aria-label="Fish selection">
+                <mat-chip *ngFor="let device of commonDevices">{{device}}</mat-chip>
+                </mat-chip-list>
+        </div>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!-- Checkbox Column -->
+    <ng-container matColumnDef="select">
+      <th mat-header-cell *matHeaderCellDef>
+       
+      </th>
+      <td mat-cell *matCellDef="let row">
+        <!-- <input type="checkbox" (click) = "checkeDevice(row)"/> -->
+         <mat-checkbox (click)= "checkeDevice(row)">
+        </mat-checkbox> 
+      </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="Name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.device_name}} </td>
+    </ng-container>
+  
+    <!-- Status Column -->
+    <ng-container matColumnDef="Status">
+      <th mat-header-cell *matHeaderCellDef> Status </th>
+      <td mat-cell *matCellDef="let element"> Connected </td>
+    </ng-container>
+  
+    <!-- Description Column -->
+    <ng-container matColumnDef="Description">
+      <th mat-header-cell *matHeaderCellDef> Description </th>
+      <td mat-cell *matCellDef="let element"> {{element.device_id}} </td>
+    </ng-container>
+  
+    <!-- Serial number Column -->
+    <ng-container matColumnDef="Serial Number">
+      <th mat-header-cell *matHeaderCellDef> Symbol </th>
+      <td mat-cell *matCellDef="let element"> {{element.serial_num}} </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" >
+    </tr>
+  </table>
+  </div>
+
+  
